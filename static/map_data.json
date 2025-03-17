@@ -1,0 +1,196 @@
+{
+    "width":"100%",
+    "height":"100%",
+    "storymap": {
+        "language": "en",
+        "map_type":"stamen:toner-lines",
+        "map_as_image":false,
+        "slides": [
+            {
+                "type":"overview",
+
+                "text":{
+                    "headline":"The Jewish Square Mile",
+                    "text":"Embark on a journey through time with the Jewish Square Mile project's interactive map, and uncover the rich history of London's medieval Jewish community. This digital exploration invites you to delve into the stories of the men, women, and children who lived, worked, and were laid to rest in the area now known as the Barbican. The map highlights key locations, such as the remnants of the 1,000-year-old Jewish burial ground beneath Thomas More Garden. Whether you're able to visit in person or prefer to explore from home, the map provides an engaging and educational experience, shedding light on a pivotal yet often overlooked chapter of London's history."
+                },
+                "media":{
+                    "url":"https://www.thejewishsquaremile.org/s/JSQM-BLACK.jpg",
+                    "credit":"The Jewish Square Mile"
+
+                }
+            },
+            {
+                "type":"slide",
+                "location":{
+                    "lat":51.5190293,
+                    "lon":-0.0960009
+                },
+                "text":{
+                    "headline":"Thomas More House",
+                    "text":"Thomas More House is a Grade II listed residential block within the Barbican Estate in the City of London, named after Sir Thomas More, lawyer, author, statesman, Lord Chancellor beheaded for refusing to swear allegiance to King Henry VIII as Head of the Church. Completed in 1973, comprising 20 blocks and 3 high-rises it is part of the 40-acre Brutalist residential estate and Barbican Arts Centre. Today it is home to more than 4000 residents. The Barbican Estate was built on a WW2 bomb site. On the 29th December 1940 a devastating bombing raid destroyed the vast majority of buildings from ‘Moorgate to Aldersgate Street and from Islington to Guildhall’ in a single night a vast area of the City of London needed reconstructing. In May 1960 Chamberlin, Powell and Bon were confirmed as the architects. Construction began in 1965 and the residential estate was completed in 1976. The Barbican Arts Centre sits within the 40 acre Barbican Estate. The northern side of the block looks onto the residential garden under which is a large portion of the medieval Jewish cemetery."
+                },
+                "media":{
+                    "url":"https://youtu.be/ff9CvyI9Uok?feature=shared",
+                    "caption":"The Burial Ground of Rabbeinu Yaakov of Orleans",
+                    "credit":"Rabbi Daniel Glatstein"
+
+                }
+            },
+            {
+                "type":"slide",
+                "location":{
+                    "lat":51.5177767,
+                    "lon":-0.095096
+                },
+                "text":{
+                    "headline":"Barber Surgeons",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in vulputate tortor. Vivamus hendrerit pharetra dui, quis efficitur metus aliquam ut. Sed justo orci, eleifend eu lacus sed, accumsan vulputate metus. Sed congue, tellus sit amet malesuada ornare, erat tortor aliquet magna, in semper ante ex sed dui. Donec egestas arcu nisl, sit amet rhoncus massa finibus at. Sed fermentum, ex sit amet congue porttitor, nunc augue mattis nunc, eget tempor enim tortor at purus. Proin ut viverra ante, at aliquet magna. Morbi elit ante, mattis quis ornare in, porta vitae urna. Praesent nec leo at ipsum lobortis imperdiet. Nullam suscipit purus diam, et lobortis diam viverra vitae. Mauris eu auctor lectus. Praesent dignissim augue quis nibh tincidunt, non venenatis magna tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo sodales vehicula. Cras ornare bibendum enim. Integer consectetur leo viverra felis dignissim, sit amet fringilla neque dictum. Nullam. "
+                },
+                "media":{
+                    "url":"https://westcoastdocs.com/wp-content/uploads/2018/06/image-placeholder-large.jpg",
+                    "caption":"Caption Placeholder",
+                    "credit":"Credit Placeholder"
+
+                }
+            },
+            {
+                "type":"slide",
+                "location":{
+                    "lat":51.516595,
+                    "lon":-0.0957388
+                },
+                "text":{
+                    "headline":"Noble Street",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in vulputate tortor. Vivamus hendrerit pharetra dui, quis efficitur metus aliquam ut. Sed justo orci, eleifend eu lacus sed, accumsan vulputate metus. Sed congue, tellus sit amet malesuada ornare, erat tortor aliquet magna, in semper ante ex sed dui. Donec egestas arcu nisl, sit amet rhoncus massa finibus at. Sed fermentum, ex sit amet congue porttitor, nunc augue mattis nunc, eget tempor enim tortor at purus. Proin ut viverra ante, at aliquet magna. Morbi elit ante, mattis quis ornare in, porta vitae urna. Praesent nec leo at ipsum lobortis imperdiet. Nullam suscipit purus diam, et lobortis diam viverra vitae. Mauris eu auctor lectus. Praesent dignissim augue quis nibh tincidunt, non venenatis magna tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo sodales vehicula. Cras ornare bibendum enim. Integer consectetur leo viverra felis dignissim, sit amet fringilla neque dictum. Nullam. "
+                },
+                "media":{
+                    "url":"https://westcoastdocs.com/wp-content/uploads/2018/06/image-placeholder-large.jpg",
+                    "caption":"Caption Placeholder",
+                    "credit":"Credit Placeholder"
+
+                }
+            },
+            {
+                "type":"slide",
+                "location":{
+                    "lat":51.5157429,
+                    "lon":-0.0961239
+                },
+                "text":{
+                    "headline":"Goldsmiths' Hall",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in vulputate tortor. Vivamus hendrerit pharetra dui, quis efficitur metus aliquam ut. Sed justo orci, eleifend eu lacus sed, accumsan vulputate metus. Sed congue, tellus sit amet malesuada ornare, erat tortor aliquet magna, in semper ante ex sed dui. Donec egestas arcu nisl, sit amet rhoncus massa finibus at. Sed fermentum, ex sit amet congue porttitor, nunc augue mattis nunc, eget tempor enim tortor at purus. Proin ut viverra ante, at aliquet magna. Morbi elit ante, mattis quis ornare in, porta vitae urna. Praesent nec leo at ipsum lobortis imperdiet. Nullam suscipit purus diam, et lobortis diam viverra vitae. Mauris eu auctor lectus. Praesent dignissim augue quis nibh tincidunt, non venenatis magna tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo sodales vehicula. Cras ornare bibendum enim. Integer consectetur leo viverra felis dignissim, sit amet fringilla neque dictum. Nullam. "
+                },
+                "media":{
+                    "url":"https://westcoastdocs.com/wp-content/uploads/2018/06/image-placeholder-large.jpg",
+                    "caption":"Caption Placeholder",
+                    "credit":"Credit Placeholder"
+
+                }
+            },
+            {
+                "type":"slide",
+                "location":{
+                    "lat":51.514764,
+                    "lon":-0.0938202
+                },
+                "text":{
+                    "headline":"1-6 Milk Street",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in vulputate tortor. Vivamus hendrerit pharetra dui, quis efficitur metus aliquam ut. Sed justo orci, eleifend eu lacus sed, accumsan vulputate metus. Sed congue, tellus sit amet malesuada ornare, erat tortor aliquet magna, in semper ante ex sed dui. Donec egestas arcu nisl, sit amet rhoncus massa finibus at. Sed fermentum, ex sit amet congue porttitor, nunc augue mattis nunc, eget tempor enim tortor at purus. Proin ut viverra ante, at aliquet magna. Morbi elit ante, mattis quis ornare in, porta vitae urna. Praesent nec leo at ipsum lobortis imperdiet. Nullam suscipit purus diam, et lobortis diam viverra vitae. Mauris eu auctor lectus. Praesent dignissim augue quis nibh tincidunt, non venenatis magna tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo sodales vehicula. Cras ornare bibendum enim. Integer consectetur leo viverra felis dignissim, sit amet fringilla neque dictum. Nullam. "
+                },
+                "media":{
+                    "url":"https://westcoastdocs.com/wp-content/uploads/2018/06/image-placeholder-large.jpg",
+                    "caption":"Caption Placeholder",
+                    "credit":"Credit Placeholder"
+
+                }
+            },
+            {
+                "type":"slide",
+                "location":{
+                    "lat":51.5154354,
+                    "lon":-0.0920421
+                },
+                "text":{
+                    "headline":"Guildhall Yard",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in vulputate tortor. Vivamus hendrerit pharetra dui, quis efficitur metus aliquam ut. Sed justo orci, eleifend eu lacus sed, accumsan vulputate metus. Sed congue, tellus sit amet malesuada ornare, erat tortor aliquet magna, in semper ante ex sed dui. Donec egestas arcu nisl, sit amet rhoncus massa finibus at. Sed fermentum, ex sit amet congue porttitor, nunc augue mattis nunc, eget tempor enim tortor at purus. Proin ut viverra ante, at aliquet magna. Morbi elit ante, mattis quis ornare in, porta vitae urna. Praesent nec leo at ipsum lobortis imperdiet. Nullam suscipit purus diam, et lobortis diam viverra vitae. Mauris eu auctor lectus. Praesent dignissim augue quis nibh tincidunt, non venenatis magna tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo sodales vehicula. Cras ornare bibendum enim. Integer consectetur leo viverra felis dignissim, sit amet fringilla neque dictum. Nullam. "
+                },
+                "media":{
+                    "url":"https://westcoastdocs.com/wp-content/uploads/2018/06/image-placeholder-large.jpg",
+                    "caption":"Caption Placeholder",
+                    "credit":"Credit Placeholder"
+
+                }
+            },
+            {
+                "type":"slide",
+                "location":{
+                    "lat":51.515715,
+                    "lon":-0.0917903
+                },
+                "text":{
+                    "headline":"Guildhall Art Gallery",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in vulputate tortor. Vivamus hendrerit pharetra dui, quis efficitur metus aliquam ut. Sed justo orci, eleifend eu lacus sed, accumsan vulputate metus. Sed congue, tellus sit amet malesuada ornare, erat tortor aliquet magna, in semper ante ex sed dui. Donec egestas arcu nisl, sit amet rhoncus massa finibus at. Sed fermentum, ex sit amet congue porttitor, nunc augue mattis nunc, eget tempor enim tortor at purus. Proin ut viverra ante, at aliquet magna. Morbi elit ante, mattis quis ornare in, porta vitae urna. Praesent nec leo at ipsum lobortis imperdiet. Nullam suscipit purus diam, et lobortis diam viverra vitae. Mauris eu auctor lectus. Praesent dignissim augue quis nibh tincidunt, non venenatis magna tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo sodales vehicula. Cras ornare bibendum enim. Integer consectetur leo viverra felis dignissim, sit amet fringilla neque dictum. Nullam. "
+                },
+                "media":{
+                    "url":"https://westcoastdocs.com/wp-content/uploads/2018/06/image-placeholder-large.jpg",
+                    "caption":"Caption Placeholder",
+                    "credit":"Credit Placeholder"
+
+                }
+            },
+            {
+                "type":"slide",
+                "location":{
+                    "lat":51.5142961,
+                    "lon":-0.0907512
+                },
+                "text":{
+                    "headline":"Blue Plaque - The Great Synagogue",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in vulputate tortor. Vivamus hendrerit pharetra dui, quis efficitur metus aliquam ut. Sed justo orci, eleifend eu lacus sed, accumsan vulputate metus. Sed congue, tellus sit amet malesuada ornare, erat tortor aliquet magna, in semper ante ex sed dui. Donec egestas arcu nisl, sit amet rhoncus massa finibus at. Sed fermentum, ex sit amet congue porttitor, nunc augue mattis nunc, eget tempor enim tortor at purus. Proin ut viverra ante, at aliquet magna. Morbi elit ante, mattis quis ornare in, porta vitae urna. Praesent nec leo at ipsum lobortis imperdiet. Nullam suscipit purus diam, et lobortis diam viverra vitae. Mauris eu auctor lectus. Praesent dignissim augue quis nibh tincidunt, non venenatis magna tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo sodales vehicula. Cras ornare bibendum enim. Integer consectetur leo viverra felis dignissim, sit amet fringilla neque dictum. Nullam. "
+                },
+                "media":{
+                    "url":"https://westcoastdocs.com/wp-content/uploads/2018/06/image-placeholder-large.jpg",
+                    "caption":"Caption Placeholder",
+                    "credit":"Credit Placeholder"
+
+                }
+            },
+            {
+                "type":"slide",
+                "location":{
+                    "lat":51.5140898,
+                    "lon":-0.0914237
+                },
+                "text":{
+                    "headline":"Disraeli Plaque on Frederick's Place",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in vulputate tortor. Vivamus hendrerit pharetra dui, quis efficitur metus aliquam ut. Sed justo orci, eleifend eu lacus sed, accumsan vulputate metus. Sed congue, tellus sit amet malesuada ornare, erat tortor aliquet magna, in semper ante ex sed dui. Donec egestas arcu nisl, sit amet rhoncus massa finibus at. Sed fermentum, ex sit amet congue porttitor, nunc augue mattis nunc, eget tempor enim tortor at purus. Proin ut viverra ante, at aliquet magna. Morbi elit ante, mattis quis ornare in, porta vitae urna. Praesent nec leo at ipsum lobortis imperdiet. Nullam suscipit purus diam, et lobortis diam viverra vitae. Mauris eu auctor lectus. Praesent dignissim augue quis nibh tincidunt, non venenatis magna tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo sodales vehicula. Cras ornare bibendum enim. Integer consectetur leo viverra felis dignissim, sit amet fringilla neque dictum. Nullam. "
+                },
+                "media":{
+                    "url":"https://westcoastdocs.com/wp-content/uploads/2018/06/image-placeholder-large.jpg",
+                    "caption":"Caption Placeholder",
+                    "credit":"Credit Placeholder"
+
+                }
+            },
+            {
+                "type":"slide",
+                "location":{
+                    "lat":51.5187013,
+                    "lon":-0.0938786
+                },
+                "text":{
+                    "headline":"St Giles Cripplegate",
+                    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce in vulputate tortor. Vivamus hendrerit pharetra dui, quis efficitur metus aliquam ut. Sed justo orci, eleifend eu lacus sed, accumsan vulputate metus. Sed congue, tellus sit amet malesuada ornare, erat tortor aliquet magna, in semper ante ex sed dui. Donec egestas arcu nisl, sit amet rhoncus massa finibus at. Sed fermentum, ex sit amet congue porttitor, nunc augue mattis nunc, eget tempor enim tortor at purus. Proin ut viverra ante, at aliquet magna. Morbi elit ante, mattis quis ornare in, porta vitae urna. Praesent nec leo at ipsum lobortis imperdiet. Nullam suscipit purus diam, et lobortis diam viverra vitae. Mauris eu auctor lectus. Praesent dignissim augue quis nibh tincidunt, non venenatis magna tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla commodo sodales vehicula. Cras ornare bibendum enim. Integer consectetur leo viverra felis dignissim, sit amet fringilla neque dictum. Nullam. "
+                },
+                "media":{
+                    "url":"https://westcoastdocs.com/wp-content/uploads/2018/06/image-placeholder-large.jpg",
+                    "caption":"Caption Placeholder",
+                    "credit":"Credit Placeholder"
+
+                }
+            }
+
+        ]
+
+    }
+}
