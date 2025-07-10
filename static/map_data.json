@@ -3,7 +3,8 @@
     "height":"100%",
     "storymap": {
         "language": "en",
-        "map_type":"stamen:toner-lines",
+        "map_type": "https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}.png?access-token=RXPs4NiMM7GrOLpLLd1o60e5hVZZexRN4csee7bKjgIjFPB8UH9UC8y5YbLhDRGm",
+        "map_subdomains": "abcd",
         "map_as_image":false,
         "slides": [
             {

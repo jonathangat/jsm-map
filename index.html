@@ -6,6 +6,8 @@
     <link rel="shortcut icon" href="#">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Jewish Square Mile Map</title>
+    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/storymapjs/latest/css/storymap.css">
+    <link rel="stylesheet" href=https://use.typekit.net/brd0tck.css>
     <style>
         html,
         body,
@@ -15,6 +17,41 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+        }
+
+        .vco-storymap {
+            font-family: 'futura-pt', sans-serif !important;
+        }
+
+        .vco-text p {
+            font-size: large !important;
+        }
+
+        .vco-caption {
+            font-style: italic !important;
+            font-size: small !important;
+        }
+
+        /* H2 / Main Headline - YMCA Orange */
+        .vco-storymap .vco-slide .vco-headline {
+            font-family: 'futura-pt', sans-serif !important;
+            font-weight: bolder;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: 0;
+            color: #005DAA;
+
+        }
+
+        /* H5 / Subhead or Small Title - YMCA Blue */
+        .vco-storymap .vco-slide h5,
+        .vco-storymap .vco-slide .vco-subhead {
+            font-family: 'futura-pt', sans-serif !important;
+            font-weight: bolder;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: 0;
+            color: #FF9933;
         }
     </style>
 </head>
@@ -27,7 +64,6 @@
     <div id="mapdiv"></div>
 
     <!-- Your script tags should be placed before the closing body tag. -->
-    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/storymapjs/latest/css/storymap.css">
     <script type="text/javascript" src="https://cdn.knightlab.com/libs/storymapjs/latest/js/storymap-min.js"></script>
 
     <script>
@@ -35,12 +71,16 @@
         var storymap_data = './static/map_data.json';
 
         // certain settings must be passed within a separate options object
-        var storymap_options = {};
+
+        const storymap_options = {};
 
         var storymap = new KLStoryMap.StoryMap('mapdiv', storymap_data, storymap_options);
+
         window.onresize = function (event) {
             storymap.updateDisplay(); // this isn't automatic
         }
+
+
     </script>
 </body>
 
