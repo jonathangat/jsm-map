@@ -15,7 +15,7 @@
                     "text":"<p>Embark on a journey through time with the Jewish Square Mile project&apos;s interactive map, and uncover the rich history of London&apos;s medieval Jewish community. This digital exploration invites you to delve into the stories of the men, women, and children who lived, worked, and were laid to rest in the area now known as the Barbican.</p><p>  The map highlights key locations, such as the remnants of the 1,000-year-old Jewish burial ground beneath Thomas More Garden. Whether you&apos;re able to visit in person or prefer to explore from home, the map provides an engaging and educational experience, shedding light on a pivotal yet often overlooked chapter of London&apos;s history.</p>"
                 },
                 "media":{
-                    "url":"https://www.thejewishsquaremile.org/s/JSQM-BLACK.jpg",
+                    "url":"img/JSQM-MAP-LOGO-WALKING_TOUR.png",
                     "credit":"The Jewish Square Mile"
 
                 }
@@ -193,8 +193,8 @@
             {
                 "type":"slide",
                 "text":{
-                    "headline":"Credits Placeholder",
-                    "text":"Placeholder for credits, editing, programming, funding, etc. Call for action for donation maybe?"
+                    "headline":"Credits",
+                    "text":"<p><strong>Web Development<br /></strong><a href='https://www.linkedin.com/in/jonathan-gat/' target='_blank'>Jonathan Gat</a></p><p><strong>Logo &amp; Graphics<br /></strong><a href='https://www.linkedin.com/in/jan-marc-petroschka-ab3a51b5/' target='_blank'>JM Petroschka</a><p><strong>Photography</strong><br /><a href='https://www.linkedin.com/in/howard-p-morris/' target='_blank'>Howard Morris<a/></p></p><p>&copy; <a href='https://www.thejewishsquaremile.org/' target='_blank'>The Jewish Square Mile</a> 2025</p>"
                 }
             }
 
