@@ -6,6 +6,7 @@
         "map_type": "https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}.png?access-token=RXPs4NiMM7GrOLpLLd1o60e5hVZZexRN4csee7bKjgIjFPB8UH9UC8y5YbLhDRGm",
         "map_subdomains": "abcd",
         "map_as_image":false,
+        "attribution": "<a href='https://jawg.io' title='Tiles Courtesy of Jawg Maps' target='_blank'>&copy; <b>Jawg</b>Maps</a> &copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
         "slides": [
             {
                 "type":"overview",
