@@ -104,10 +104,403 @@
         .vco-media-shadow:first-child {
             box-shadow: none !important;
         }
+
+        /* =====================================================================
+           PRINT / PDF EXPORT WORKFLOW
+           Reuses the repository's brand tokens (colours, Futura fonts, spacing)
+           to render an editorial, travel-journal style printable document.
+           ===================================================================== */
+        :root {
+            /* Brand palette extrapolated from the StoryMap slide styling */
+            --jsqm-blue: #005DAA;      /* YMCA Blue  - primary headlines */
+            --jsqm-orange: #FF9933;    /* YMCA Orange - subheads / accents */
+            --jsqm-ink: #1a1a1a;       /* body text */
+            --jsqm-muted: #555555;     /* captions / metadata */
+            --jsqm-rule: #d9d9d9;      /* hairline rules */
+            --jsqm-paper: #ffffff;
+
+            --jsqm-font-body: 'futura-pt', sans-serif;
+            --jsqm-font-display: 'futura-pt-condensed', 'futura-pt', sans-serif;
+
+            /* Editorial spacing scale */
+            --jsqm-space-xs: 4px;
+            --jsqm-space-sm: 8px;
+            --jsqm-space-md: 16px;
+            --jsqm-space-lg: 28px;
+            --jsqm-space-xl: 48px;
+        }
+
+        /* ---- The print document lives off-screen until printing ---- */
+        #jsqm-print-doc {
+            display: none;
+        }
+
+        /* ---- Loading roundel / overlay (screen only) ---- */
+        #jsqm-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 10001;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 93, 170, 0.28);
+            backdrop-filter: blur(2px);
+        }
+
+        #jsqm-overlay.is-visible {
+            display: flex;
+        }
+
+        .jsqm-overlay__card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            padding: 32px 40px;
+            background: var(--jsqm-paper);
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            min-width: 240px;
+        }
+
+        .jsqm-overlay__msg {
+            font-family: var(--jsqm-font-display);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 15px;
+            color: var(--jsqm-blue);
+            text-align: center;
+        }
+
+        /* Two-tone brand roundel */
+        .jsqm-spinner {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 153, 51, 0.25); /* faint orange track */
+            border-top-color: var(--jsqm-orange);
+            border-right-color: var(--jsqm-blue);
+            animation: jsqm-spin 0.9s linear infinite;
+        }
+
+        @keyframes jsqm-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .jsqm-spinner {
+                animation-duration: 2.2s;
+            }
+        }
+
+        /* =====================================================================
+           @media print - transform into an editorial document
+           ===================================================================== */
+        @page {
+            size: A4;
+            margin: 18mm 16mm 20mm 16mm;
+        }
+
+        @media print {
+
+            /* Hide the live interactive experience and all of its chrome */
+            #mapdiv,
+            #jsqm-overlay,
+            .vco-storymap,
+            .vco-slider,
+            .vco-slidernav,
+            .vco-slidernav-next,
+            .vco-slidernav-previous,
+            .leaflet-control-container,
+            .leaflet-control-zoom,
+            .vco-map,
+            .vco-navigation,
+            .vco-menubar,
+            .vco-toolbar {
+                display: none !important;
+            }
+
+            html,
+            body {
+                height: auto !important;
+                width: auto !important;
+                overflow: visible !important;
+                background: var(--jsqm-paper) !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            /* Reveal and lay out the print document */
+            #jsqm-print-doc {
+                display: block !important;
+                font-family: var(--jsqm-font-body);
+                color: var(--jsqm-ink);
+                line-height: 1.5;
+            }
+
+            /* Ensure brand colours + photographs render faithfully (avoid
+               browsers stripping backgrounds/colours for ink saving) */
+            #jsqm-print-doc,
+            #jsqm-print-doc * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* High-resolution image rendering */
+            #jsqm-print-doc img {
+                image-rendering: -webkit-optimize-contrast;
+                max-width: 100%;
+            }
+
+            /* ---- Cover / title page ---- */
+            .jsqm-cover {
+                text-align: center;
+                padding-top: 20mm;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .jsqm-cover__logo {
+                max-width: 70%;
+                max-height: 90mm;
+                object-fit: contain;
+                margin: 0 auto var(--jsqm-space-lg);
+                display: block;
+            }
+
+            .jsqm-cover__title {
+                font-family: var(--jsqm-font-display);
+                font-weight: 800;
+                text-transform: uppercase;
+                color: var(--jsqm-blue);
+                font-size: 38pt;
+                line-height: 1;
+                margin: 0 0 var(--jsqm-space-md);
+            }
+
+            .jsqm-cover__subtitle {
+                font-family: var(--jsqm-font-display);
+                font-weight: 800;
+                text-transform: uppercase;
+                color: var(--jsqm-orange);
+                font-size: 15pt;
+                letter-spacing: 0.08em;
+                margin: 0;
+            }
+
+            .jsqm-cover__intro {
+                max-width: 130mm;
+                margin: var(--jsqm-space-xl) auto 0;
+                text-align: left;
+                font-size: 11pt;
+                color: var(--jsqm-ink);
+            }
+
+            /* ---- Individual story entries ---- */
+            .jsqm-entry {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                page-break-before: always;
+                break-before: page;
+                padding-top: var(--jsqm-space-sm);
+            }
+
+            /* Keep the first entry after the cover from forcing a blank page */
+            .jsqm-entry:first-of-type {
+                page-break-before: avoid;
+                break-before: auto;
+            }
+
+            .jsqm-entry__header {
+                border-bottom: 2px solid var(--jsqm-blue);
+                padding-bottom: var(--jsqm-space-sm);
+                margin-bottom: var(--jsqm-space-md);
+            }
+
+            .jsqm-entry__step {
+                display: inline-block;
+                font-family: var(--jsqm-font-display);
+                font-weight: 800;
+                font-size: 10pt;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--jsqm-orange);
+                margin-bottom: var(--jsqm-space-xs);
+            }
+
+            .jsqm-entry__title {
+                font-family: var(--jsqm-font-display);
+                font-weight: 800;
+                text-transform: uppercase;
+                line-height: 1;
+                color: var(--jsqm-blue);
+                font-size: 26pt;
+                margin: 0;
+            }
+
+            .jsqm-entry__location {
+                font-family: var(--jsqm-font-body);
+                font-size: 9.5pt;
+                color: var(--jsqm-muted);
+                margin-top: var(--jsqm-space-xs);
+            }
+
+            .jsqm-entry__location svg {
+                width: 11px;
+                height: 11px;
+                fill: var(--jsqm-orange);
+                vertical-align: -1px;
+                margin-right: 3px;
+            }
+
+            /* Editorial two-part media block: photo + static map */
+            .jsqm-entry__media {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: var(--jsqm-space-md);
+            }
+
+            .jsqm-entry__figure {
+                margin: 0 0 var(--jsqm-space-sm);
+            }
+
+            .jsqm-entry__photo {
+                width: 100%;
+                max-height: 120mm;
+                object-fit: cover;
+                border: 1px solid var(--jsqm-rule);
+            }
+
+            .jsqm-entry__caption {
+                font-family: var(--jsqm-font-body);
+                font-style: italic;
+                font-size: 9pt;
+                color: var(--jsqm-muted);
+                margin-top: var(--jsqm-space-xs);
+                line-height: 1.35;
+            }
+
+            .jsqm-entry__credit {
+                font-style: normal;
+                font-size: 8pt;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                color: var(--jsqm-muted);
+            }
+
+            /* Static map snippet */
+            .jsqm-entry__map {
+                margin-top: var(--jsqm-space-sm);
+            }
+
+            /* The frame is the positioning context for the overlaid attribution */
+            .jsqm-entry__map-frame {
+                position: relative;
+                display: block;
+                line-height: 0; /* remove inline-image gap */
+            }
+
+            .jsqm-entry__map-frame img {
+                width: 100%;
+                max-height: 70mm;
+                object-fit: cover;
+                border: 1px solid var(--jsqm-rule);
+                display: block;
+            }
+
+            .jsqm-entry__map-label {
+                font-family: var(--jsqm-font-display);
+                font-weight: 800;
+                text-transform: uppercase;
+                font-size: 8pt;
+                letter-spacing: 0.1em;
+                color: var(--jsqm-orange);
+                margin-bottom: 2px;
+            }
+
+            /* Basemap source attribution - required by the tile provider's
+               licence (Jawg / OpenStreetMap). Overlaid on the map's
+               bottom-left corner, mirroring the on-screen Leaflet control. */
+            .jsqm-entry__map-attribution {
+                position: absolute;
+                bottom: 1px;
+                left: 1px;
+                max-width: calc(100% - 2px);
+                padding: 1px 5px;
+                background: rgba(255, 255, 255, 0.75);
+                font-family: var(--jsqm-font-body);
+                font-style: normal;
+                font-size: 6.5pt;
+                line-height: 1.3;
+                color: #333333;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            /* Body copy - editorial columns for long-form text */
+            .jsqm-entry__body {
+                font-family: var(--jsqm-font-body);
+                font-size: 10.5pt;
+                color: var(--jsqm-ink);
+                text-align: justify;
+                hyphens: auto;
+            }
+
+            .jsqm-entry__body p {
+                margin: 0 0 var(--jsqm-space-sm);
+                orphans: 3;
+                widows: 3;
+            }
+
+            .jsqm-entry__body h5 {
+                font-family: var(--jsqm-font-display);
+                font-weight: 800;
+                text-transform: uppercase;
+                color: var(--jsqm-orange);
+                font-size: 12pt;
+                margin: var(--jsqm-space-md) 0 var(--jsqm-space-xs);
+            }
+
+            .jsqm-entry__body a {
+                color: var(--jsqm-blue);
+                text-decoration: none;
+                word-break: break-word;
+            }
+
+            .jsqm-entry__body ul {
+                padding-left: 18px;
+                margin: 0 0 var(--jsqm-space-sm);
+            }
+
+            .jsqm-entry__body li {
+                margin-bottom: 3px;
+                font-size: 9.5pt;
+            }
+
+            /* Running footer with page numbers via CSS counters */
+            .jsqm-entry__footer-note {
+                display: block;
+                margin-top: var(--jsqm-space-md);
+                padding-top: var(--jsqm-space-xs);
+                border-top: 1px solid var(--jsqm-rule);
+                font-family: var(--jsqm-font-display);
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                font-size: 7.5pt;
+                color: var(--jsqm-muted);
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Editorial print document. Hidden on screen, populated on demand,
+         and revealed only under @media print. Triggered via Ctrl+P / Cmd+P. -->
+    <div id="jsqm-print-doc" aria-hidden="true"></div>
+
     <!-- The StoryMap container can go anywhere on the page. Be sure to
     specify a width and height.  The width can be absolute (in pixels) or
     relative (in percentage), but the height must be an absolute value.
@@ -132,6 +525,395 @@
         }
 
 
+    </script>
+
+    <!-- =====================================================================
+         PRINT / PDF EXPORT BUILDER
+         Reads the same StoryMap JSON, builds an editorial document, generates
+         a static Jawg map snippet per geo-located slide, then prints.
+         ===================================================================== -->
+    <script>
+        (function () {
+            var DATA_URL = './static/map_data.json';
+            var printDoc = document.getElementById('jsqm-print-doc');
+            var built = false;
+
+            // ---- Loading roundel / overlay -------------------------------
+            var overlay = null;
+
+            function showOverlay(message) {
+                if (!overlay) {
+                    overlay = document.createElement('div');
+                    overlay.id = 'jsqm-overlay';
+                    overlay.innerHTML =
+                        '<div class="jsqm-overlay__card">' +
+                        '<div class="jsqm-spinner" role="status" aria-live="polite"></div>' +
+                        '<div class="jsqm-overlay__msg"></div>' +
+                        '</div>';
+                    document.body.appendChild(overlay);
+                }
+                setOverlayMessage(message);
+                overlay.classList.add('is-visible');
+            }
+
+            function setOverlayMessage(message) {
+                if (overlay) {
+                    var msg = overlay.querySelector('.jsqm-overlay__msg');
+                    if (msg) { msg.textContent = message || ''; }
+                }
+            }
+
+            function hideOverlay() {
+                if (overlay) { overlay.classList.remove('is-visible'); }
+            }
+
+            // Escape text for safe insertion into HTML attributes / text nodes.
+            function esc(value) {
+                return String(value == null ? '' : value)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;');
+            }
+
+            // Convert the basemap attribution HTML (which contains anchor tags)
+            // into readable plain text for print. Links can't be clicked on
+            // paper, so we keep the label and, where useful, append the URL.
+            // Falls back to a sensible default if the config has no attribution.
+            function attributionToText(attributionHtml) {
+                var fallback = '\u00A9 Jawg Maps \u00B7 \u00A9 OpenStreetMap contributors';
+                if (!attributionHtml) { return fallback; }
+                var tmp = document.createElement('div');
+                tmp.innerHTML = attributionHtml;
+                var text = (tmp.textContent || tmp.innerText || '').replace(/\s+/g, ' ').trim();
+                return text || fallback;
+            }
+
+            // Build a static map image URL for a location using the same Jawg
+            // tile scheme configured for the interactive map. StoryMap's tile
+            // URL is a raster {z}/{x}/{y} template; the Jawg "static" endpoint
+            // uses the same access token, so we reuse it. If token parsing
+            // fails we simply omit the map snippet.
+            function buildStaticMapUrl(tileTemplate, lat, lon) {
+                if (!tileTemplate || typeof lat !== 'number' || typeof lon !== 'number') {
+                    return null;
+                }
+                var tokenMatch = tileTemplate.match(/access-token=([^&]+)/);
+                if (!tokenMatch) { return null; }
+                var token = tokenMatch[1];
+                // Derive the Jawg style id from the tile path (e.g. jawg-terrain).
+                var styleMatch = tileTemplate.match(/tile\.jawg\.io\/([^/]+)\//);
+                var style = styleMatch ? styleMatch[1] : 'jawg-streets';
+                // Jawg Static Maps API (https://www.jawg.io/docs/apidocs/maps/static-maps/):
+                //   center = lat,lon | size = WIDTHxHEIGHT
+                //   marker = color:HEX,size:small|medium|large,label:X|lat,lon  ('|' => %7C)
+                //   colour is an RGB hex string with no leading '#'.
+                var zoom = 16;
+                var width = 1000;
+                var height = 500;
+                var markerHex = 'FF9933'; // brand orange, hex without '#'
+                var marker = 'color:' + markerHex + ',size:large%7C' + lat + ',' + lon;
+                return 'https://api.jawg.io/static?layer=' + encodeURIComponent(style) +
+                    '&zoom=' + zoom +
+                    '&center=' + lat + ',' + lon +
+                    '&size=' + width + 'x' + height +
+                    '&marker=' + marker +
+                    '&format=png' +
+                    '&access-token=' + token;
+            }
+
+            // Convert a decimal coordinate to a friendly DMS-ish string.
+            function formatCoord(lat, lon) {
+                if (typeof lat !== 'number' || typeof lon !== 'number') { return ''; }
+                var latHem = lat >= 0 ? 'N' : 'S';
+                var lonHem = lon >= 0 ? 'E' : 'W';
+                return Math.abs(lat).toFixed(5) + '\u00B0 ' + latHem +
+                    ', ' + Math.abs(lon).toFixed(5) + '\u00B0 ' + lonHem;
+            }
+
+            var PIN_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>';
+
+            function buildEntry(slide, tileTemplate, stepNumber, attributionText) {
+                var text = slide.text || {};
+                var media = slide.media || {};
+                var loc = slide.location || {};
+                var hasCoords = typeof loc.lat === 'number' && typeof loc.lon === 'number';
+
+                var html = '<article class="jsqm-entry">';
+
+                // Header: step number + title + location metadata
+                html += '<header class="jsqm-entry__header">';
+                if (stepNumber != null) {
+                    html += '<span class="jsqm-entry__step">Stop ' + stepNumber + '</span>';
+                }
+                html += '<h2 class="jsqm-entry__title">' + esc(text.headline || 'Untitled') + '</h2>';
+                if (hasCoords) {
+                    html += '<div class="jsqm-entry__location">' + PIN_SVG +
+                        esc(formatCoord(loc.lat, loc.lon)) + '</div>';
+                }
+                html += '</header>';
+
+                // Media block: featured photograph + caption + credit
+                if (media.url) {
+                    html += '<div class="jsqm-entry__media">';
+                    html += '<figure class="jsqm-entry__figure">';
+                    html += '<img class="jsqm-entry__photo" src="' + esc(media.url) +
+                        '" alt="' + esc(media.caption || text.headline || '') + '" />';
+                    if (media.caption || media.credit) {
+                        html += '<figcaption class="jsqm-entry__caption">';
+                        if (media.caption) { html += esc(media.caption) + ' '; }
+                        if (media.credit) {
+                            html += '<span class="jsqm-entry__credit">Photo: ' +
+                                esc(media.credit) + '</span>';
+                        }
+                        html += '</figcaption>';
+                    }
+                    html += '</figure>';
+
+                    // Static map snippet for geo-located stops. We DON'T emit the
+                    // <img> yet - the map container is hydrated later, once the
+                    // map image has been confirmed to load, so a failed request
+                    // never leaves a broken-image icon in the PDF.
+                    var mapUrl = hasCoords ? buildStaticMapUrl(tileTemplate, loc.lat, loc.lon) : null;
+                    if (mapUrl) {
+                        html += '<div class="jsqm-entry__map" data-map-url="' + esc(mapUrl) +
+                            '" data-map-alt="Map showing the location of ' + esc(text.headline || '') + '"' +
+                            ' data-map-attribution="' + esc(attributionText) + '">';
+                        html += '<div class="jsqm-entry__map-label">Location</div>';
+                        // The map image and its overlaid attribution are injected
+                        // into this frame once the image is confirmed to load.
+                        html += '<div class="jsqm-entry__map-frame"></div>';
+                        html += '</div>';
+                    }
+                    html += '</div>';
+                }
+
+                // Full description body (already trusted HTML from our own JSON)
+                html += '<div class="jsqm-entry__body">' + (text.text || '') + '</div>';
+
+                if (text.headline) {
+                    html += '<span class="jsqm-entry__footer-note">The Jewish Square Mile &middot; ' +
+                        esc(text.headline) + '</span>';
+                }
+
+                html += '</article>';
+                return html;
+            }
+
+            function buildCover(data) {
+                var slides = data.storymap.slides || [];
+                var overview = slides.find(function (s) { return s.type === 'overview'; }) || slides[0] || {};
+                var text = overview.text || {};
+                var media = overview.media || {};
+
+                var html = '<section class="jsqm-cover">';
+                if (media.url) {
+                    html += '<img class="jsqm-cover__logo" src="' + esc(media.url) +
+                        '" alt="' + esc(text.headline || 'The Jewish Square Mile') + '" />';
+                }
+                html += '<h1 class="jsqm-cover__title">' + esc(text.headline || 'The Jewish Square Mile') + '</h1>';
+                html += '<p class="jsqm-cover__subtitle">A Self-Guided Walking Tour</p>';
+                if (text.text) {
+                    html += '<div class="jsqm-cover__intro">' + text.text + '</div>';
+                }
+                html += '</section>';
+                return html;
+            }
+
+            function buildDocument(data) {
+                var slides = (data.storymap && data.storymap.slides) || [];
+                var tileTemplate = data.storymap && data.storymap.map_type;
+                // Basemap attribution from the StoryMap config, as plain text.
+                var attributionText = attributionToText(data.storymap && data.storymap.attribution);
+
+                var out = buildCover(data);
+
+                // Number only the actual tour stops (skip overview + credits pages).
+                var step = 0;
+                slides.forEach(function (slide) {
+                    if (slide.type === 'overview') { return; }
+                    var isStop = slide.location &&
+                        typeof slide.location.lat === 'number';
+                    var stepNumber = isStop ? (++step) : null;
+                    out += buildEntry(slide, tileTemplate, stepNumber, attributionText);
+                });
+
+                printDoc.innerHTML = out;
+            }
+
+            // Load a single image URL, resolving true on success / false on
+            // failure. Retries once (helps with transient rate-limiting when
+            // many static-map requests fire at the same time). Uses a detached
+            // Image() so we only attach a real <img> to the document once the
+            // bytes are known to be good.
+            function loadImage(url, timeoutMs, attempts) {
+                timeoutMs = timeoutMs || 15000;
+                attempts = attempts || 2;
+                return new Promise(function (resolve) {
+                    function tryOnce(remaining) {
+                        var img = new Image();
+                        var settled = false;
+                        var timer = setTimeout(function () {
+                            if (settled) { return; }
+                            settled = true;
+                            img.src = ''; // abort
+                            retryOrFail();
+                        }, timeoutMs);
+
+                        function retryOrFail() {
+                            if (remaining > 1) {
+                                // brief backoff before retrying
+                                setTimeout(function () { tryOnce(remaining - 1); }, 600);
+                            } else {
+                                resolve(false);
+                            }
+                        }
+
+                        img.onload = function () {
+                            if (settled) { return; }
+                            settled = true;
+                            clearTimeout(timer);
+                            resolve(true);
+                        };
+                        img.onerror = function () {
+                            if (settled) { return; }
+                            settled = true;
+                            clearTimeout(timer);
+                            retryOrFail();
+                        };
+                        // cache-buster on retry so a failed response isn't reused
+                        img.src = (remaining < attempts) ? (url + '&_r=' + remaining) : url;
+                    }
+                    tryOnce(attempts);
+                });
+            }
+
+            // Ensure every photo/logo already in the document has finished
+            // loading (these are local files, so this is quick).
+            function waitForStaticImages() {
+                var imgs = printDoc.querySelectorAll('img');
+                var promises = [];
+                imgs.forEach(function (img) {
+                    if (img.complete && img.naturalWidth > 0) { return; }
+                    promises.push(new Promise(function (resolve) {
+                        img.addEventListener('load', resolve, { once: true });
+                        img.addEventListener('error', resolve, { once: true });
+                        setTimeout(resolve, 15000);
+                    }));
+                });
+                return Promise.all(promises);
+            }
+
+            // Fetch each map, and only inject its <img> once confirmed loaded.
+            // Maps that fail (after a retry) have their block removed so the PDF
+            // never shows a broken-image icon. Reports progress to the overlay.
+            function hydrateMaps(onProgress) {
+                var blocks = Array.prototype.slice.call(
+                    printDoc.querySelectorAll('.jsqm-entry__map[data-map-url]'));
+                var total = blocks.length;
+                var completed = 0;
+                if (onProgress) { onProgress(0, total); }
+                if (!total) { return Promise.resolve({ ok: 0, failed: 0, total: 0 }); }
+
+                var failed = 0;
+                return Promise.all(blocks.map(function (block) {
+                    var url = block.getAttribute('data-map-url');
+                    var alt = block.getAttribute('data-map-alt') || 'Location map';
+                    var attribution = block.getAttribute('data-map-attribution') || '';
+                    return loadImage(url).then(function (ok) {
+                        if (ok) {
+                            var frame = block.querySelector('.jsqm-entry__map-frame') || block;
+                            var img = document.createElement('img');
+                            img.src = url;
+                            img.alt = alt;
+                            frame.appendChild(img);
+                            // Overlay the basemap attribution on the map's
+                            // bottom-left corner (required by the tile licence).
+                            if (attribution) {
+                                var attr = document.createElement('span');
+                                attr.className = 'jsqm-entry__map-attribution';
+                                attr.textContent = attribution;
+                                frame.appendChild(attr);
+                            }
+                            block.removeAttribute('data-map-url');
+                        } else {
+                            // No usable map - drop the whole block cleanly.
+                            failed++;
+                            block.parentNode && block.parentNode.removeChild(block);
+                        }
+                        completed++;
+                        if (onProgress) { onProgress(completed, total); }
+                    });
+                })).then(function () {
+                    return { ok: total - failed, failed: failed, total: total };
+                });
+            }
+
+            function handlePrint() {
+                showOverlay('Building your document\u2026');
+
+                var ready = built
+                    ? Promise.resolve()
+                    : fetch(DATA_URL)
+                        .then(function (r) {
+                            if (!r.ok) { throw new Error('HTTP ' + r.status); }
+                            return r.json();
+                        })
+                        .then(function (data) {
+                            buildDocument(data);
+                            built = true;
+                        });
+
+                ready
+                    .then(function () {
+                        setOverlayMessage('Loading photographs\u2026');
+                        return waitForStaticImages();
+                    })
+                    .then(function () {
+                        setOverlayMessage('Fetching location maps\u2026');
+                        return hydrateMaps(function (done, total) {
+                            setOverlayMessage('Fetching location maps\u2026 ' + done + ' / ' + total);
+                        });
+                    })
+                    .then(function (result) {
+                        if (result && result.failed) {
+                            console.warn(result.failed + ' of ' + result.total +
+                                ' location maps could not be loaded and were omitted.');
+                        }
+                        setOverlayMessage('Opening print dialog\u2026');
+                        // Let the browser paint the freshly-added <img> tags
+                        // before the (blocking) print dialog captures the page.
+                        return new Promise(function (resolve) { setTimeout(resolve, 250); });
+                    })
+                    .then(function () {
+                        hideOverlay();
+                        window.print();
+                    })
+                    .catch(function (err) {
+                        console.error('Print build failed:', err);
+                        hideOverlay();
+                        alert('Sorry, the printable view could not be generated.');
+                    });
+            }
+
+            // Support the native Ctrl+P / Cmd+P shortcut. Because beforeprint
+            // cannot await asynchronous map loading, we intercept the shortcut,
+            // run the full build+hydrate flow (which ends by calling
+            // window.print() once everything is ready), and suppress the raw
+            // browser print of the interactive map.
+            var printingViaFlow = false;
+            document.addEventListener('keydown', function (e) {
+                var isPrintKey = (e.ctrlKey || e.metaKey) && (e.key === 'p' || e.key === 'P');
+                if (!isPrintKey) { return; }
+                // Let our prepared print proceed; only intercept the first press.
+                if (printingViaFlow) { return; }
+                e.preventDefault();
+                printingViaFlow = true;
+                var restore = function () { printingViaFlow = false; };
+                window.addEventListener('afterprint', restore, { once: true });
+                handlePrint();
+            });
+        })();
     </script>
 </body>
 
